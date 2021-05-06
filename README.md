@@ -7,14 +7,18 @@ Winecellar APP
 Use Android Emulator
 
 ```bash
-tested witch Pixel 3a
+tested with Pixel 3a
 ```
 
 ## Usage
 
 
 
-## Contributing
+## Developers
+
+*Pascal Konezciny
+*Jonas Mächler
+*Domini Richner
 
 
 ## License
