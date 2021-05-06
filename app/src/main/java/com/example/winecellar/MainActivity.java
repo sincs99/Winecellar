@@ -2,11 +2,10 @@ package com.example.winecellar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,33 +26,28 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addBtn.setOnClickListener((View v) -> {
+
                 Intent intent = new Intent(MainActivity.this, AddActivity.class);
                 startActivity(intent);
-            }
+
         });
-        viewBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        viewBtn.setOnClickListener((View v) -> {
+
                 Intent intent = new Intent(MainActivity.this, ViewActivity.class);
                 startActivity(intent);
-            }
+
         });
-        reportBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        reportBtn.setOnClickListener((View v) -> {
+
                 Intent intent = new Intent(MainActivity.this, DrinkActivity.class);
                 startActivity(intent);
-            }
         });
-        drinkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        drinkBtn.setOnClickListener((View v) -> {
+
                 Intent intent = new Intent(MainActivity.this, ReportActivity.class);
                 startActivity(intent);
-            }
+
         });
     }
 }

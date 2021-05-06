@@ -18,11 +18,8 @@ public class ViewActivity extends AppCompatActivity {
 
         backButton = findViewById(R.id.backbtn);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        backButton.setOnClickListener((View v) -> {
                 finish();
-            }
         });
 
 
