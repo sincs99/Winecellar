@@ -1,4 +1,4 @@
-# Foobar
+# Android Module FS21
 
 Winecellar APP
 
@@ -10,15 +10,18 @@ Use Android Emulator
 tested with Pixel 3a
 ```
 
-## Usage
+## Tasks
+
+- [x] Create View
+- [ ] Implement Function
 
 
 
 ## Developers
 
-*Pascal Konezciny
-*Jonas Mächler
-*Domini Richner
+- Pascal Konezciny
+- Jonas Mächler
+- Dominic Richner
 
 
 ## License
