@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-
     ImageButton addBtn, viewBtn, reportBtn, drinkBtn;
 
     @Override
@@ -23,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
         viewBtn = findViewById(R.id.viewBtn);
         reportBtn = findViewById(R.id.reportBtn);
         drinkBtn = findViewById(R.id.drinkBtn);
-
-
 
         addBtn.setOnClickListener((View v) -> {
 

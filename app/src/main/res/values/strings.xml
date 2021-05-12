@@ -2,8 +2,9 @@
     <string name="app_name">Winecellar</string>
     <string name="wineName">Name of Wine</string>
     <string name="winePrice">Price</string>
-    <string name="wineStore">Store</string>
-
+    <string name="amount">Amount</string>
+    <string name="grape">Grape</string>
+    <string name="winecellarlogo">winecellarLogo</string>
     <string-array name="years">
         <item>2020</item>
         <item>2019</item>
@@ -27,5 +28,11 @@
         <item>2001</item>
         <item>2000</item>
         <item>1999+</item>
+    </string-array>
+    <string-array name="type">
+        <item>Red</item>
+        <item>White</item>
+        <item>Rose</item>
+        <item>Sparkling</item>
     </string-array>
 </resources>
