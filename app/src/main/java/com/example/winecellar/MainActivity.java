@@ -37,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
         });
         reportBtn.setOnClickListener((View v) -> {
 
-                Intent intent = new Intent(MainActivity.this, DrinkActivity.class);
+                Intent intent = new Intent(MainActivity.this, ReportActivity.class);
                 startActivity(intent);
         });
         drinkBtn.setOnClickListener((View v) -> {
 
-                Intent intent = new Intent(MainActivity.this, ReportActivity.class);
+                Intent intent = new Intent(MainActivity.this, DrinkActivity.class);
                 startActivity(intent);
 
         });

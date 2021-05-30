@@ -5,6 +5,9 @@
     <string name="amount">Amount</string>
     <string name="grape">Grape</string>
     <string name="winecellarlogo">winecellarLogo</string>
+    <string name="backbutton">BackButton</string>
+    <string name="total_bottles">Total Bottles:</string>
+    <string name="total_value">Total Value:</string>
     <string-array name="years">
         <item>2020</item>
         <item>2019</item>

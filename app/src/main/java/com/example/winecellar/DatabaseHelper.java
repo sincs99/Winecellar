@@ -2,10 +2,15 @@ package com.example.winecellar;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -51,5 +56,101 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public int getAmountOfRedWines(){
+        int redWines;
+        String queryString = "SELECT Sum(STORE) FROM " + TABLE_NAME + " WHERE TYPE = ?";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, new String[]{"Red"});
+
+        if(cursor.moveToFirst()){
+            redWines = cursor.getInt(0);
+        } else {
+            redWines = 0;
+        }
+        cursor.close();
+
+        return redWines;
+    }
+
+    public int getAmountOfWhiteWines(){
+        int whiteWines;
+        String queryString = "SELECT Sum(STORE) FROM " + TABLE_NAME + " WHERE TYPE = ?";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, new String[]{"White"});
+
+        if(cursor.moveToFirst()){
+            whiteWines = cursor.getInt(0);
+        } else {
+            whiteWines = 0;
+        }
+        cursor.close();
+
+        return whiteWines;
+    }
+
+    public int getAmountOfRoseWines(){
+        int roseWines;
+        String queryString = "SELECT Sum(STORE) FROM " + TABLE_NAME + " WHERE TYPE = ?";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, new String[]{"Rose"});
+
+        if(cursor.moveToFirst()){
+            roseWines = cursor.getInt(0);
+        } else {
+            roseWines = 0;
+        }
+        cursor.close();
+
+        return roseWines;
+    }
+
+    public int getAmountOfSparklingWines(){
+        int sparklingWines;
+        String queryString = "SELECT Sum(STORE) FROM " + TABLE_NAME + " WHERE TYPE = ?";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, new String[]{"Sparkling"});
+
+        if(cursor.moveToFirst()){
+            sparklingWines = cursor.getInt(0);
+        } else {
+            sparklingWines = 0;
+        }
+        cursor.close();
+
+        return sparklingWines;
+    }
+
+    public int getTotalAmountOfBottles(){
+        int totalWines;
+        String queryString = "SELECT Sum(STORE) FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst()){
+            totalWines = cursor.getInt(0);
+        } else {
+            totalWines = 0;
+        }
+        cursor.close();
+
+        return totalWines;
+    }
+
+    public double getTotalValue(){
+        double totalValue;
+        String queryString = "SELECT Sum(PRICE * STORE) FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst()){
+            totalValue = cursor.getDouble(0);
+        } else {
+            totalValue = 0.0;
+        }
+        cursor.close();
+
+        return totalValue;
     }
 }
