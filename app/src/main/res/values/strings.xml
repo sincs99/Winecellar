@@ -38,4 +38,17 @@
         <item>Rose</item>
         <item>Sparkling</item>
     </string-array>
+
+
+    <string name="find_wine">Find Wine!</string>
+    <string name="brands">No wine selected</string>
+    <string-array name="wine_colors">
+        <item>Red</item>
+        <item>White</item>
+        <item>Rose</item>
+        <item>Sparkling</item>
+    </string-array>
+
+
+
 </resources>
