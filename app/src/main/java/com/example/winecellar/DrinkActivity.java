@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,10 @@ public class DrinkActivity extends AppCompatActivity {
     WinesAdapterDrink winesAdapterDrink;
     RecyclerView.LayoutManager layoutManager;
     List<Wine> wineList = new ArrayList<>();
+    SearchView searchView;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,22 @@ public class DrinkActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        searchView = findViewById(R.id.drink_search);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                winesAdapterDrink.getDrinkFilter().filter(newText);
+
+
+                return false;
             }
         });
 
