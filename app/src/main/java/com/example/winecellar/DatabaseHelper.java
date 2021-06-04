@@ -24,6 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_6 = "AGE";
     private static final String COL_7 = "TYPE";
 
+    List<Wine> wineList = new ArrayList<>();
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
 
@@ -152,5 +154,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
 
         return totalValue;
+    }
+
+    public List<Wine> getAllWines(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String columns[] = {DatabaseHelper.COL_1, DatabaseHelper.COL_2, DatabaseHelper.COL_3, DatabaseHelper.COL_4, DatabaseHelper.COL_5, DatabaseHelper.COL_6, DatabaseHelper.COL_7};
+        Cursor cursor = db.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
+        while(cursor.moveToNext()){
+            int index1 = cursor.getColumnIndex(DatabaseHelper.COL_1);
+            int rowId = cursor.getInt(index1);
+            int index2 = cursor.getColumnIndex(DatabaseHelper.COL_2);
+            String name = cursor.getString(index2);
+            int index3 = cursor.getColumnIndex(DatabaseHelper.COL_3);
+            String grape = cursor.getString(index3);
+            int index4 = cursor.getColumnIndex(DatabaseHelper.COL_4);
+            double price = cursor.getDouble(index4);
+            int index5 = cursor.getColumnIndex(DatabaseHelper.COL_5);
+            int amount = cursor.getInt(index5);
+            int index6 = cursor.getColumnIndex(DatabaseHelper.COL_6);
+            int age = cursor.getInt(index6);
+            int index7 = cursor.getColumnIndex(DatabaseHelper.COL_7);
+            String type = cursor.getString(index7);
+            Wine wine = new Wine(rowId, name, grape, price, amount, age, type);
+            wineList.add(wine);
+        }
+        return wineList;
     }
 }
