@@ -10,15 +10,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import java.util.List;
 
-public class WinesAdapter extends RecyclerView.Adapter<WinesAdapter.ViewHolder> {
+public class WinesAdapterDrink extends RecyclerView.Adapter<WinesAdapterDrink.ViewHolder> {
 
     Context context;
     List<Wine> wineList;
     RecyclerView rvWines;
     final View.OnClickListener onClickListener = new MyOnClickListener();
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView rowId;
@@ -41,7 +41,7 @@ public class WinesAdapter extends RecyclerView.Adapter<WinesAdapter.ViewHolder> 
         }
     }
 
-    public WinesAdapter(Context context, List<Wine> wineList, RecyclerView rvWines){
+    public WinesAdapterDrink(Context context, List<Wine> wineList, RecyclerView rvWines){
         this.context = context;
         this.wineList = wineList;
         this.rvWines = rvWines;
@@ -49,7 +49,7 @@ public class WinesAdapter extends RecyclerView.Adapter<WinesAdapter.ViewHolder> 
 
     @NonNull
     @Override
-    public WinesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public WinesAdapterDrink.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.single_item, parent, false);
@@ -59,7 +59,7 @@ public class WinesAdapter extends RecyclerView.Adapter<WinesAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull WinesAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull WinesAdapterDrink.ViewHolder viewHolder, int position) {
         Wine wine = wineList.get(position);
         viewHolder.rowId.setText(""+wine.getId());
         viewHolder.rowName.setText(wine.getName());
@@ -76,11 +76,24 @@ public class WinesAdapter extends RecyclerView.Adapter<WinesAdapter.ViewHolder> 
     }
 
     private class MyOnClickListener implements View.OnClickListener {
+        DatabaseHelper myDb;
         @Override
         public void onClick(View v) {
+
             int itemPosition = rvWines.getChildLayoutPosition(v);
-            String item = wineList.get(itemPosition).getName();
-            Toast.makeText(context, item, Toast.LENGTH_LONG).show();
+            int id = wineList.get(itemPosition).getId();
+            int itemPosition2 = rvWines.getChildLayoutPosition(v);
+            int amount = wineList.get(itemPosition2).getAmount();
+
+            myDb = new DatabaseHelper(context);
+            boolean response = myDb.drinkWine(id, amount);
+
+            if (response == true){
+                Toast.makeText(context, "Enjoy!", Toast.LENGTH_LONG).show();
+            } else{
+                Toast.makeText(context, "Was your last bottle!", Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 }

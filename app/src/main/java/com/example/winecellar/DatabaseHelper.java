@@ -180,4 +180,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return wineList;
     }
+
+    public boolean drinkWine(int id, int amount) {
+        int newAmount = amount -1;
+
+        if(amount > 1){
+            String queryString = "UPDATE " + TABLE_NAME + " SET STORE = STORE -1 WHERE ID = " + id + " AND STORE > 1";
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(queryString);
+            return true;
+        } else {
+            String queryString2 = "DELETE FROM " + TABLE_NAME + " WHERE ID = " + id;
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(queryString2);
+            return  false;
+        }
+
+
+    }
 }
