@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     List<Wine> wineList = new ArrayList<>();
 
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
 
@@ -46,12 +48,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertWine(String name, String grape, String price, String amount, String age, String type){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, grape);
         contentValues.put(COL_4, price);
         contentValues.put(COL_5, amount);
         contentValues.put(COL_6, age);
         contentValues.put(COL_7, type);
+
         Long result = db.insert(TABLE_NAME, null, contentValues);
         if (result == -1){
             return  false;

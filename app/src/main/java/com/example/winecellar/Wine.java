@@ -8,6 +8,7 @@ public class Wine {
     private int amount;
     private int age;
     private String type;
+    private boolean expanded;
 
     public Wine(int id, String name, String grape, double price, int amount, int age, String type) {
         this.id = id;
@@ -45,5 +46,13 @@ public class Wine {
 
     public String getType() {
         return type;
+    }
+
+    public boolean isExpanded() {
+        return expanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
     }
 }

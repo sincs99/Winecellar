@@ -2,6 +2,7 @@ package com.example.winecellar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +18,8 @@ public class AddActivity extends AppCompatActivity {
     ImageView backButton;
     EditText editTextName, editTextGrape, editTextPrice, editTextAmount;
     Spinner spinnerYear, spinnerType;
-    ImageButton btnAdd;
+    ImageButton btnAdd, addImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,10 @@ public class AddActivity extends AppCompatActivity {
         spinnerType = findViewById(R.id.spinnerType);
         btnAdd = findViewById(R.id.addBtn);
         backButton = findViewById(R.id.backbtn);
+        addImage = findViewById(R.id.addImage);
+
+
+
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
