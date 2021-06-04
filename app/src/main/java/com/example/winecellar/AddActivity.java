@@ -18,7 +18,7 @@ public class AddActivity extends AppCompatActivity {
     ImageView backButton;
     EditText editTextName, editTextGrape, editTextPrice, editTextAmount;
     Spinner spinnerYear, spinnerType;
-    ImageButton btnAdd, addImage;
+    ImageButton btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class AddActivity extends AppCompatActivity {
         spinnerType = findViewById(R.id.spinnerType);
         btnAdd = findViewById(R.id.addBtn);
         backButton = findViewById(R.id.backbtn);
-        addImage = findViewById(R.id.addImage);
+
 
 
 
